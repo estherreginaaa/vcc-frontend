@@ -20,7 +20,7 @@ const LocationPage: React.FC<LocationPageProps> = () => {
 
 		const getLocations = async () => {
 			try {
-				const res = await fetch(`http://virtualcoffeeconsultationintegration.aff4h7g5dehrdecn.southeastasia.azurecontainer.io:8000/get_virtual_coffee_recommendationlocation`, {
+				const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/get_virtual_coffee_recommendationlocation`, {
 					headers: {
 						Authorization: `Bearer ${session?.token}`,
 					},
