@@ -14,13 +14,15 @@ const InteractiveChatPage: React.FC<InteractiveChatPageProps> = () => {
 	const [page, setPage] = React.useState<number>(1);
 	const [interactivechat, setinteractivechat] = React.useState<InteractiveChat[] | undefined>(undefined);
 	const [error, setError] = React.useState<string | null>(null);
+	const apiUrl = process.env.API_URL;
+
 
 	React.useEffect(() => {
 		if (!session) return;
 
 		const getInteractiveChat = async () => {
 			try {
-				const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/get_interactionLog`, {
+				const res = await fetch(`${apiUrl}/get_interactionLog`, {
 					headers: {
 						Authorization: `Bearer ${session?.token}`,
 					},

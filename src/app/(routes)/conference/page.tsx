@@ -16,13 +16,15 @@ const ConferencePage: React.FC<ConferencePageProps> = () => {
 	const [error, setError] = React.useState<string | null>(null);
 	const [loading, setLoading] = React.useState<boolean>(false);
 	const [conferences, setConferences] = React.useState<Conference[] | undefined>(undefined);
+	const apiUrl = process.env.API_URL;
+
 
 	React.useEffect(() => {
 		if (!session) return;
 
 		const getPayments = async () => {
 			try {
-				const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/videoconference`, {
+				const res = await fetch(`${apiUrl}/videoconference`, {
 					headers: {
 						Authorization: `Bearer ${session?.token}`,
 					},

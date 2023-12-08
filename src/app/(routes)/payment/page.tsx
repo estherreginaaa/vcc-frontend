@@ -14,13 +14,14 @@ const PaymentPage: React.FC<PaymentPageProps> = () => {
 	const [page, setPage] = React.useState<number>(1);
 	const [payments, setPayments] = React.useState<Payment[] | undefined>(undefined);
 	const [error, setError] = React.useState<string | null>(null);
+	const apiUrl = process.env.API_URL;
 
 	React.useEffect(() => {
 		if (!session) return;
 
 		const getPayments = async () => {
 			try {
-				const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/paymentprocessing`, {
+				const res = await fetch(`${apiUrl}/paymentprocessing`, {
 					headers: {
 						Authorization: `Bearer ${session?.token}`,
 					},

@@ -11,6 +11,7 @@ type AuthContextType = {
 };
 
 const AuthContext = React.createContext<AuthContextType | undefined>(undefined);
+const apiUrl = process.env.API_URL;
 
 interface AuthProviderProps {
 	children: React.ReactNode;
@@ -20,7 +21,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 	const [session, setSession] = useLocalStorage<Session | null>('session', null);
 
 	const login = async (username: string, password: string) => {
-		const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/token`, {
+		const response = await fetch(`${apiUrl}/token`, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/x-www-form-urlencoded',
@@ -40,14 +41,14 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 	};
 
 	const getUser = async (token: string): Promise<User | undefined> => {
-		const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/me`, {
+		const response = await fetch(`${apiUrl}/users/me`, {
 			headers: { Authorization: `Bearer ${token}` },
 		});
 		if (response.ok) return await response.json();
 	};
 
 	const register = async (username: string, password: string, email: string, name: string) => {
-		const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/register`, {
+		const response = await fetch(`${apiUrl}/register`, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',

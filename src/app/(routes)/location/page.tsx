@@ -14,13 +14,15 @@ const LocationPage: React.FC<LocationPageProps> = () => {
 	const [page, setPage] = React.useState<number>(1);
 	const [location, setlocation] = React.useState<Location[] | undefined>(undefined);
 	const [error, setError] = React.useState<string | null>(null);
+    const apiUrl = process.env.API_URL;
+
 
 	React.useEffect(() => {
 		if (!session) return;
 
 		const getLocations = async () => {
 			try {
-				const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/get_virtual_coffee_recommendationlocation`, {
+				const res = await fetch(`${apiUrl}/get_virtual_coffee_recommendationlocation`, {
 					headers: {
 						Authorization: `Bearer ${session?.token}`,
 					},

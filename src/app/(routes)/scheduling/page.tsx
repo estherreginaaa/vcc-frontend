@@ -14,13 +14,15 @@ const SchedulingPage: React.FC<SchedulingPageProps> = () => {
 	const [page, setPage] = React.useState<number>(1);
 	const [error, setError] = React.useState<string | null>(null);
 	const [schedulings, setSchedulings] = React.useState<Scheduling[] | undefined>(undefined);
+	const apiUrl = process.env.API_URL;
+
 
 	React.useEffect(() => {
 		if (!session) return;
 
 		const getPayments = async () => {
 			try {
-				const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/schedulingplatform`, {
+				const res = await fetch(`${apiUrl}/schedulingplatform`, {
 					headers: {
 						Authorization: `Bearer ${session?.token}`,
 					},
