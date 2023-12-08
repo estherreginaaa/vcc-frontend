@@ -20,7 +20,7 @@ const SchedulingPage: React.FC<SchedulingPageProps> = () => {
 
 		const getPayments = async () => {
 			try {
-				const res = await fetch(`http://localhost:8000/schedulingplatform`, {
+				const res = await fetch(`http://virtualcoffeeconsultationintegration.aff4h7g5dehrdecn.southeastasia.azurecontainer.io:8000/schedulingplatform`, {
 					headers: {
 						Authorization: `Bearer ${session?.token}`,
 					},
