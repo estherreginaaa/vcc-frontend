@@ -14,7 +14,6 @@ const InteractiveChatPage: React.FC<InteractiveChatPageProps> = () => {
 	const [page, setPage] = React.useState<number>(1);
 	const [interactivechat, setinteractivechat] = React.useState<InteractiveChat[] | undefined>(undefined);
 	const [error, setError] = React.useState<string | null>(null);
-	const apiUrl = process.env.API_URL;
 
 
 	React.useEffect(() => {

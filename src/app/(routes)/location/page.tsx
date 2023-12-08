@@ -14,7 +14,6 @@ const LocationPage: React.FC<LocationPageProps> = () => {
 	const [page, setPage] = React.useState<number>(1);
 	const [location, setlocation] = React.useState<Location[] | undefined>(undefined);
 	const [error, setError] = React.useState<string | null>(null);
-    const apiUrl = process.env.API_URL;
 
 
 	React.useEffect(() => {
