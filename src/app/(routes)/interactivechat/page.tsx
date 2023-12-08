@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import useAuth from '@/utils/useAuth';
-import type { InteractiveChat, Payment } from '@/libs/types';
+import type { InteractiveChat } from '@/libs/types';
 import Button from '@/components/button/button';
 
 interface InteractiveChatPageProps {
@@ -18,7 +18,7 @@ const InteractiveChatPage: React.FC<InteractiveChatPageProps> = () => {
 	React.useEffect(() => {
 		if (!session) return;
 
-		const getPayments = async () => {
+		const getInteractiveChat = async () => {
 			try {
 				const res = await fetch(`http://localhost:8000/get_interactionLog`, {
 					headers: {
@@ -32,7 +32,7 @@ const InteractiveChatPage: React.FC<InteractiveChatPageProps> = () => {
 			}
 		};
 
-		getPayments();
+		getInteractiveChat();
 	}, [session, logout]);
 
 	const paginated = React.useMemo(() => {
