@@ -20,7 +20,7 @@ const PaymentPage: React.FC<PaymentPageProps> = () => {
 
 		const getPayments = async () => {
 			try {
-				const res = await fetch(`http://virtualcoffeeconsultationintegration.aff4h7g5dehrdecn.southeastasia.azurecontainer.io:8000/paymentprocessing`, {
+				const res = await fetch(`http://vcchoteltour.evaqbngfeabyhpdr.southeastasia.azurecontainer.io:8000/paymentprocessing`, {
 					headers: {
 						Authorization: `Bearer ${session?.token}`,
 					},
