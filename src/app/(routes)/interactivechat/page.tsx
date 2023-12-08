@@ -59,7 +59,7 @@ const InteractiveChatPage: React.FC<InteractiveChatPageProps> = () => {
 
 	return (
 		<div className='py-20'>
-			<h1 className='font-bold text-2xl text-center mb-5'>Payment Processing</h1>
+			<h1 className='font-bold text-2xl text-center mb-5'>Interactive Chat</h1>
 			{error && <p className='text-red-500 text-center text-sm mb-5'>{error}</p>}
 
 			{interactivechat ? (
