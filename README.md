@@ -12,7 +12,7 @@ Virtual Coffee Consultation adalah layanan untuk konsultasi kopi secara virtual 
 
 3. Test keberjalanan backend aplikasi dapat menggunakan ```Postman``` atau secara langsung pada Swagger UI.
 
-## Cara menjalankan aplikasi untuk development frontend pada localhost
+## Cara menjalankan aplikasi untuk development frontend
 1. Jalankan command ```npm install``` pada terminal untuk menginstal semua modul yang diperlukan untuk menjalankan aplikasi.
 
 2. Jalankan ```npm run dev``` untuk menjalankan aplikasi.

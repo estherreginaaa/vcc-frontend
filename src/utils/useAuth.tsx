@@ -15,12 +15,6 @@ const AuthContext = React.createContext<AuthContextType | undefined>(undefined);
 interface AuthProviderProps {
 	children: React.ReactNode;
 }
-const cors = require('cors');
-const express = require('express');
-const app = express();
-
-// Enable CORS for all routes
-app.use(cors());
 
 export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 	const [session, setSession] = useLocalStorage<Session | null>('session', null);
