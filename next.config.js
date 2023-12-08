@@ -3,4 +3,3 @@ const nextConfig = {}
 
 module.exports = nextConfig
 
-env: {API_UR: "https://yours-project.vercel.app"}

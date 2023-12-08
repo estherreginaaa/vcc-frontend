@@ -22,7 +22,7 @@ const InteractiveChatPage: React.FC<InteractiveChatPageProps> = () => {
 
 		const getInteractiveChat = async () => {
 			try {
-				const res = await fetch(`${apiUrl}/get_interactionLog`, {
+				const res = await fetch(`http://virtualcoffeeconsultationintegration.aff4h7g5dehrdecn.southeastasia.azurecontainer.io:8000/get_interactionLog`, {
 					headers: {
 						Authorization: `Bearer ${session?.token}`,
 					},

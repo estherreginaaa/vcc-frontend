@@ -11,17 +11,22 @@ type AuthContextType = {
 };
 
 const AuthContext = React.createContext<AuthContextType | undefined>(undefined);
-const apiUrl = process.env.API_URL;
 
 interface AuthProviderProps {
 	children: React.ReactNode;
 }
+const cors = require('cors');
+const express = require('express');
+const app = express();
+
+// Enable CORS for all routes
+app.use(cors());
 
 export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 	const [session, setSession] = useLocalStorage<Session | null>('session', null);
 
 	const login = async (username: string, password: string) => {
-		const response = await fetch(`${apiUrl}/token`, {
+		const response = await fetch(`http://virtualcoffeeconsultationintegration.aff4h7g5dehrdecn.southeastasia.azurecontainer.io:8000/token`, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/x-www-form-urlencoded',
@@ -41,14 +46,14 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 	};
 
 	const getUser = async (token: string): Promise<User | undefined> => {
-		const response = await fetch(`${apiUrl}/users/me`, {
+		const response = await fetch(`http://virtualcoffeeconsultationintegration.aff4h7g5dehrdecn.southeastasia.azurecontainer.io:8000/users/me`, {
 			headers: { Authorization: `Bearer ${token}` },
 		});
 		if (response.ok) return await response.json();
 	};
 
 	const register = async (username: string, password: string, email: string, name: string) => {
-		const response = await fetch(`${apiUrl}/register`, {
+		const response = await fetch(`http://virtualcoffeeconsultationintegration.aff4h7g5dehrdecn.southeastasia.azurecontainer.io:8000/register`, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',

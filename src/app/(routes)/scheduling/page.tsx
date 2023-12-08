@@ -9,20 +9,19 @@ interface SchedulingPageProps {
 	//
 }
 
+
 const SchedulingPage: React.FC<SchedulingPageProps> = () => {
 	const { session, logout } = useAuth();
 	const [page, setPage] = React.useState<number>(1);
 	const [error, setError] = React.useState<string | null>(null);
 	const [schedulings, setSchedulings] = React.useState<Scheduling[] | undefined>(undefined);
-	const apiUrl = process.env.API_URL;
-
 
 	React.useEffect(() => {
 		if (!session) return;
 
 		const getPayments = async () => {
 			try {
-				const res = await fetch(`${apiUrl}/schedulingplatform`, {
+				const res = await fetch(`http://virtualcoffeeconsultationintegration.aff4h7g5dehrdecn.southeastasia.azurecontainer.io:8000/schedulingplatform`, {
 					headers: {
 						Authorization: `Bearer ${session?.token}`,
 					},
