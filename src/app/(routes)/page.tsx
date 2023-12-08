@@ -32,7 +32,7 @@ const items = [
 const Home: React.FC<HomeProps> = ({}) => {
 	return (
 		<div className='flex flex-col items-center justify-center min-h-screen'>
-			<h1 className='font-bold text-3xl mb-5'>What do you want to do</h1>
+			<h1 className='font-bold text-5xl mb-5'>What do you want to do??</h1>
 			<div className='w-full max-w-screen-lg flex flex-wrap justify-center [&>div]:p-10'>
 				{items.map((item, index) => (
 					<div key={index} className='w-full md:w-1/2 lg:w-1/3'>

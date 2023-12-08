@@ -26,7 +26,7 @@ const LocationPage: React.FC<LocationPageProps> = () => {
 					},
 				});
 				const data = await res.json();
-				setlocation(data);
+				setlocation(data.location);
 			} catch (error: any) {
 				setError(error.message);
 			}
@@ -35,20 +35,15 @@ const LocationPage: React.FC<LocationPageProps> = () => {
 		getLocations();
 	}, [session, logout]);
 
-	const paginated = React.useMemo(() => {
-        if (!location) return [];
-      
-        const start = (page - 1) * 10;
-        const pageSize = 10;
-        const paginatedData = [];
-      
-        for (let i = start; i < start + pageSize && i < location.length; i++) {
-          paginatedData.push(location[i]);
-        }
-      
-        return paginatedData;
-      }, [location, page]);
-      
+    
+    const paginated = React.useMemo(() => {
+		if (!location || Array == null) return;
+
+		const start = (page - 1) * 10;
+		const end = start + 10;
+		return location.slice(start, end);
+	}, [location, page]);
+	console.log('Paginated Data:', paginated);
 
 	const handleNext = () => {
 		if (!location) return;

@@ -26,7 +26,7 @@ const InteractiveChatPage: React.FC<InteractiveChatPageProps> = () => {
 					},
 				});
 				const data = await res.json();
-				setinteractivechat(data);
+				setinteractivechat(data.interactionLogs);
 			} catch (error: any) {
 				setError(error.message);
 			}
@@ -35,17 +35,15 @@ const InteractiveChatPage: React.FC<InteractiveChatPageProps> = () => {
 		getInteractiveChat();
 	}, [session, logout]);
 
+
 	const paginated = React.useMemo(() => {
-		if (!interactivechat || !Array.isArray(interactivechat)) return [];
-	  
+		if (!interactivechat || Array == null) return;
+
 		const start = (page - 1) * 10;
 		const end = start + 10;
-	  
-		return interactivechat
-		  .filter((_, index) => index >= start && index < end)
-		  .map(chat => ({ ...chat })); // Create shallow copies to avoid modifying the original array
-	  }, [interactivechat, page]);
-	  
+		return interactivechat.slice(start, end);
+	}, [interactivechat, page]);
+	console.log('Paginated Data:', paginated);
 
 	const handleNext = () => {
 		if (!interactivechat) return;
