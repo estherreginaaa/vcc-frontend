@@ -14,7 +14,7 @@ const Navbar: React.FC<NavbarProps> = ({ user, logout, ...props }) => {
 	return (
 		<nav className='flex justify-between items-center py-5' {...props}>
 		<Link href='/'>
-			<span className='font-bold text-lg'>Virtual Coffee Conference</span>
+			<span className='font-bold text-lg'>Virtual Coffee Consultation</span>
 		</Link>
 		<div className='flex items-center space-x-4'>
 			<Popover className='relative'>
