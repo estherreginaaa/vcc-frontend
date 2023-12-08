@@ -107,7 +107,7 @@ const LocationPage: React.FC<LocationPageProps> = () => {
 					</div>
 				</>
 			) : (
-				<p className='text-center'>No payments found</p>
+				<p className='text-center'>No location found</p>
 			)}
 		</div>
 	);

@@ -106,7 +106,7 @@ const InteractiveChatPage: React.FC<InteractiveChatPageProps> = () => {
 					</div>
 				</>
 			) : (
-				<p className='text-center'>No payments found</p>
+				<p className='text-center'>No interactive chat found</p>
 			)}
 		</div>
 	);
